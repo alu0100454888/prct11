@@ -359,7 +359,7 @@ end
 	
 
 	
-
+		#Clase preriodico natural
 	  class Periodico_Natural < Referencia_Natural
 
 	    attr_accessor :periodico
