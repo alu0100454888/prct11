@@ -287,17 +287,23 @@ describe Bib do
 
 
     
-	      it "El titulo se crea de forma Natural" do
+	      
+
+		it "El titulo se crea de forma Natural" do
 
 		 expect(@libro1.title).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
 	      end
 
+
+
+		it "la editorial se crea de forma Natural" do
+
+		 expect(@libro1.editorial).to eq("Pragmatic Bookshelf")
+	      end
+
 		
 
-    
-	      it "Imprime" do
-		 puts @libro1.to_s
-	      end
+    	
 		    
 	     
 		                

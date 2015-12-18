@@ -329,12 +329,12 @@ end
 
 	
 		    def serie(*args)
-		      args.length == 1 ? self.serie = args[0] : get_serie
+		      args.length == 1 ? self.serie = args[0] : obtenerSerie()
 		    end
 		    
 
 		    def editorial(*args)
-		      args.length == 1 ? self.editorial = args[0] : get_editorial
+		      args.length == 1 ? self.editorial = args[0] : obtenerEditorial()
 		    end
 
 	
