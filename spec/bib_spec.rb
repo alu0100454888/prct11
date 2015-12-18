@@ -301,6 +301,13 @@ describe Bib do
 		 expect(@libro1.editorial).to eq("Pragmatic Bookshelf")
 	      end
 
+
+
+		it "Es posible crear un periodico de forma natural " do
+
+		 expect(@periodico1.is_a? Bib::Periodico_Natural).to eq(true)
+
+	      end
 		
 		it " editorial del Periodico natural se instancia correctamente" do
 
