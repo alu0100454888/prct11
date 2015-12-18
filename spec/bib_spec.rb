@@ -302,13 +302,16 @@ describe Bib do
 	      end
 
 		
+		it " editorial del Periodico natural se instancia correctamente" do
 
+		 expect(@periodico1.editorial).to eq("Pragmatic Bookshelf")
+	      end
     	
 		    
 	     
 		                
 	      
-	   end # context
+	   end 
 	  
 		
 	
