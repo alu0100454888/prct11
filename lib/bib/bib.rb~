@@ -281,40 +281,147 @@ class Apa
 
  	def print_isbn
       		lista = ""
-      		num_isbns.each do |isbn|
+      		numISBN.each do |isbn|
         	count = 0
         	lista += "ISBN-" + isbn.delete('^0-9').size.to_s + ": " + isbn
-        	lista += "\n" if count != num_isbns.size
+        	lista += "\n" if count != numISBN.size
       	end
       		lista
     	end
 
 
 	def to_s
-      "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{num_edicion} #{fecha_publicacion}\n#{print_isbn}"
+      "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{numEdicion} #{fecha}\n#{print_isbn}"
     end
-  end
+
 	
 	
 
 end
 
+#**********************************************************************************************************
+#**********************************************************************************************************
+#Practica 11 creamos las referencias naturales
+
+
+	# clase generica Referencia_Natural sustituta de Referancia
+	class Referencia_Natural < Referencia
+
+		# Constructor
+		    def initialize &block
+		      self.instance_eval &block
+		    end
+
+		    # Introducimos los atributos al bloque 
+		    # Get y Set para cada atributo de la Bibilioteca Bib
+			
+		    def authors(*args)
+		      args.length == 1 ? self.autores = args[0].split(", ") : self.autores 
+		    end
+		    
+	
+		    def title(*args)
+		      args.length == 1 ? self.titulo = args[0] : self.titulo
+		    end
+
+	
+		    def serie(*args)
+		      args.length == 1 ? self.serie = args[0] : get_serie
+		    end
+		    
+
+		    def editorial(*args)
+		      args.length == 1 ? self.editorial = args[0] : get_editorial
+		    end
+
+	
+		    def edition(*args)
+		      args.length == 1 ? self.numEdicion = args[0] : self.numEdicion
+		    end
+		    
+
+		    def date(*args)
+		      args.length == 1 ? self.fecha = args[0] : self.fecha
+		    end
+		    
+
+		    def isbns(*args)
+		      args.length == 1 ? self.numISBN = args[0].split(", ") : self.numISBN
+		    end
+
+	end
+
+
+	class Articulo_Revista_Natural < Referencia_Natural
+	    # Campos
+	    attr_accessor :revista
+	    
+	    # Constructor
+	    def initialize &block
+	      super &block
+	    end
+	    
+
+	    def revista(*args)
+	      if args.length == 1
+		name, volume, issue = args[0][:name], args[0][:volume], args[0][:issue]
+		output = ""
+		output << "Journal " + name if name != nil
+		output << ", Volume " + volume.to_s if volume != nil
+		output << ", Issue " + issue.to_s if issue != nil
+		self.revista = output
+	      else
+		@revista
+	      end
+	    end
+	    
+	    # to_s
+	    def to_s
+	      puts @revista + "\n"
+	      super
+	    end
+	  end
 	
 
+	
+	# Peridodico Natural
+	  class Articulo_Periodico_Natural < Referencia_Natural
 
+	    attr_accessor :periodico
+	    
+	    # Constructor
+	    def initialize &block
+	      super &block
+	    end
+	    
+
+	    def periodico(*args)
+	       if args.length == 1
+		name, week, year = args[0][:name], args[0][:week], args[0][:year]
+		output = ""
+		output << "periodico " + name if name != nil
+		output << ", Week " + week.to_s if week != nil
+		output << ", Year " + year.to_s if year != nil
+		self.periodico = output
+	      else
+		@periodico
+	      end
+	    end
+	    
+		# metodo to_s
+	    def to_s
+	      puts @periodico + "\n"
+	      super
+	    end
+	  end
+	  
+	 
 
 
 
 puts "ALL OK!!"
 
 
-#*******************************************************************
-
-
-
-
-
-#******************************************************************
 
 end
 

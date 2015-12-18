@@ -1,6 +1,9 @@
 require 'spec_helper'
 require "bib"
 
+
+
+=begin 
 #Describimos las distintas librerias
 
 describe Bib do
@@ -231,10 +234,64 @@ describe Bib::Apa do
 
 end
 
+=end
+
+
+
+
+describe Bib do
+
+	context "# DSL natural" do
+	      before :all do
+		 @libro1 = Bib::Referencia_Natural.new do
+
+		    authors   "Dave Thomas, Andy Hunt, Chad Fowler"
+		    title     "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide"
+		    serie     "(The Facets of Ruby)"
+		    editorial "Pragmatic Bookshelf"
+		    edition   "4 edition"
+		    date      "July 7, 2013"
+		    isbns     "968-1937785499, 1937785491"
+
+		 end		
+	      end
+	      
+
+
+
+	      it "Es posible crear un libro de forma natural " do
+
+		 expect(@libro1.is_a? Bib::Referencia_Natural).to eq(true)
+
+	      end
+		
+
+
+    
+	      it "El titulo se crea de forma Natural" do
+
+		 expect(@libro1.title).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
+	      end
+
+		
+
+    
+	      it "Imprime" do
+		 puts @libro1.to_s
+	      end
+		    
+	     
+		                
+	      
+	   end # context
+	  
+		
 	
 
 
 puts "ALL OK SPEC"	
+
+
 
 end
 
