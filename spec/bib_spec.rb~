@@ -253,21 +253,35 @@ describe Bib do
 		    date      "July 7, 2013"
 		    isbns     "968-1937785499, 1937785491"
 
-		 end		
+		 end
+
+
+		
+
+
+		
 	      end
 	      
+
+
+
 	      it "Es posible crear un libro de forma natural " do
 
 		 expect(@libro1.is_a? Bib::Referencia_Natural).to eq(true)
 
 	      end
-		    
+		
+
+
+    
 	      it "El titulo se crea de forma Natural" do
 
 		 expect(@libro1.title).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
 	      end
 
-		    
+		
+
+    
 	      it "Imprime" do
 		 puts @libro1.to_s
 	      end

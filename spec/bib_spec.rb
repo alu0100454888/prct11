@@ -253,7 +253,26 @@ describe Bib do
 		    date      "July 7, 2013"
 		    isbns     "968-1937785499, 1937785491"
 
-		 end		
+		 end
+
+
+		@periodico1 = Bib::Periodico_Natural.new do
+		    authors   "Dave Thomas, Andy Hunt, Chad Fowler"
+		    title     "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide"
+		    serie     "(The Facets of Ruby)"
+		    editorial "Pragmatic Bookshelf"
+		    edition   "4 edition"
+		    date      "July 7, 2013"
+		    isbns     "968-1937785499, 1937785491"
+
+		    periodico :name => "El Pais",
+		              :week => 8,
+		              :year => 2015
+		    
+		 end
+
+
+		
 	      end
 	      
 

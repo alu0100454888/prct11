@@ -355,40 +355,12 @@ end
 	end
 
 
-	class Articulo_Revista_Natural < Referencia_Natural
-	    # Campos
-	    attr_accessor :revista
-	    
-	    # Constructor
-	    def initialize &block
-	      super &block
-	    end
-	    
-
-	    def revista(*args)
-	      if args.length == 1
-		name, volume, issue = args[0][:name], args[0][:volume], args[0][:issue]
-		output = ""
-		output << "Journal " + name if name != nil
-		output << ", Volume " + volume.to_s if volume != nil
-		output << ", Issue " + issue.to_s if issue != nil
-		self.revista = output
-	      else
-		@revista
-	      end
-	    end
-	    
-	    # to_s
-	    def to_s
-	      puts @revista + "\n"
-	      super
-	    end
-	  end
+	
 	
 
 	
-	# Peridodico Natural
-	  class Articulo_Periodico_Natural < Referencia_Natural
+
+	  class Periodico_Natural < Referencia_Natural
 
 	    attr_accessor :periodico
 	    
